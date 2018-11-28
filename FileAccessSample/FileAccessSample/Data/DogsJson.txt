@@ -1,0 +1,26 @@
+﻿[
+{
+"Breed":"Akita",
+"Category":"Utility",
+"Origin":"Japan",
+"Grooming":"Moderate",
+"Exercise":"Demanding",
+"Picture":"akita.jpg"
+},
+{
+"Breed":"Jack Russell Terrier",
+"Category":"Hunting",
+"Origin":"England",
+"Grooming":"Easy",
+"Exercise":"Demanding",
+"Picture":"jack.jpg"
+},
+{
+"Breed":"Shiba Inu",
+"Category":"Utility",
+"Origin":"Japan",
+"Grooming":"Moderate",
+"Exercise":"Moderate",
+"Picture":"shiba.jpg"
+}
+]

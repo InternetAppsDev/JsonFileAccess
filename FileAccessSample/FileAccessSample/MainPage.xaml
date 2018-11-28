@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FileAccessSample"
+             x:Class="FileAccessSample.MainPage">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="DogsSmallTemplate">
+            <ViewCell>
+                <StackLayout Margin="2">
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Breed:" />
+                        <Label Text="{Binding Path=Breed}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="Origin:" />
+                        <Label Text="{Binding Path=Origin}" />
+                    </StackLayout>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ContentPage.Resources>
+    
+    
+    
+    <StackLayout>
+
+
+        <ListView x:Name="lvDogs" 
+                  ItemSelected="lvDogs_ItemSelected"
+                  ItemTemplate="{StaticResource DogsSmallTemplate}"/>
+
+
+
+
+    </StackLayout>
+
+</ContentPage>
