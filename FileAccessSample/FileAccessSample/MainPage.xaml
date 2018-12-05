@@ -23,16 +23,80 @@
     
     
     
-    <StackLayout>
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
 
         <ListView x:Name="lvDogs" 
+                  Grid.Row="0" Grid.Column="0"
                   ItemSelected="lvDogs_ItemSelected"
                   ItemTemplate="{StaticResource DogsSmallTemplate}"/>
 
+        <StackLayout x:Name="slOneDog" Orientation="Horizontal" 
+                     WidthRequest="500" HeightRequest="300"
+                     HorizontalOptions="Center" VerticalOptions="Center" 
+                     Grid.Column="1" Grid.Row="0" BackgroundColor="Pink"
+                     Margin="5, 2, 5, 2" IsVisible="True">
+            <StackLayout x:Name="slNonEdits" Margin="3">
+                <Frame BackgroundColor="Blue" WidthRequest="75" 
+                                   HeightRequest="75" Margin="4, 2, 4, 2"/>
+                <StackLayout Orientation="Horizontal" Margin="4, 2, 4, 2" >
+                    <Label Text="Breed: " HorizontalOptions="Start"  />
+                    <Label x:Name="lblBreed" Text="{Binding Breed}" HorizontalOptions="End"  />
+                </StackLayout>
+                <Button x:Name="btnUpdate" Text="Update Data" IsEnabled="False" 
+                        HorizontalOptions="Center" Clicked="btnUpdate_Clicked" />
+            </StackLayout>
+            <StackLayout x:Name="slEditable" Margin="3" >
+                <StackLayout Orientation="Horizontal" Margin="4, 2, 4, 2">
+                    <Label Text="Origin: " HorizontalOptions="Start"  />
+                    <Entry x:Name="lblOrigin" Text="{Binding Origin}"
+                           Placeholder="Value Goes Here" HorizontalOptions="End"
+                           TextChanged="OneDogEntry_TextChanged" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="4, 2, 4, 2">
+                    <Label Text="Category: " />
+                    <Entry x:Name="lblCategory" Text="{Binding Category}" 
+                           Placeholder="Value Goes Here" HorizontalOptions="End"
+                           TextChanged="OneDogEntry_TextChanged" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="4, 2, 4, 2">
+                    <Label Text="Exercise: " />
+                    <Entry x:Name="lblExercise" Text="{Binding Exercise}" 
+                           Placeholder="Value Goes Here" HorizontalOptions="End"
+                           TextChanged="OneDogEntry_TextChanged" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="4, 2, 4, 2"
+                             >
+                    <Label Text="Grooming: " />
+                    <Entry x:Name="lblGrooming" Text="{Binding Grooming}" 
+                           Placeholder="Value Goes Here" HorizontalOptions="End"
+                           TextChanged="OneDogEntry_TextChanged" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+
+        <StackLayout x:Name="slButtons" Orientation="Horizontal" 
+                     Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                     HorizontalOptions="Center" HeightRequest="75">
+            <Button Text="Save" WidthRequest="125" HeightRequest="60"
+                    x:Name="btnSave" Margin="5, 4, 5, 4" 
+                    Clicked="btnSave_Clicked"/>
+            <Button Text="Read File" WidthRequest="125" HeightRequest="60"
+                    x:Name="btnRead" Margin="5, 4, 5, 4"
+                    Clicked="btnRead_Clicked" />
+        </StackLayout>
 
 
 
-    </StackLayout>
+
+    </Grid>
 
 </ContentPage>
